@@ -1,0 +1,55 @@
+.mat-grid-tile {
+  margin-top: 150px !important;
+}
+
+.brand-logo img {
+  width: 150px;
+  height: 70px;
+  margin-top: 20px;
+}
+
+.mat-toolbar {
+  background: none;
+}
+
+.mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.new-user {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.right-side {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.sign-up a {
+  color: #673ab7;
+}
+
+.login-form,
+.mat-grid-tile .mat-grid-tile-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-grid-tile .mat-grid-tile-header {
+  background: none;
+  color: darkslategray;
+  height: 100px;
+  padding-top: 20px;
+}
+
+.mat-grid-tile .mat-grid-tile-header div:nth-child(2) {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.mat-grid-tile .mat-grid-tile-header div:nth-child(3) {
+  font-size: 14px;
+  font-weight: 100;
+}

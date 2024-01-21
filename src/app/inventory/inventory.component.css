@@ -1,0 +1,89 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.user-name {
+  margin-left: 5px;
+}
+
+.notification-icon {
+  color: #666b6b;
+  border-radius: 0;
+  border-right: 1px solid lightgray;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.mat-mdc-list-item-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+.example-container {
+  height: 100%;
+}
+
+.mdc-list-item.mdc-list-item--with-one-line .mdc-list-item__start {
+  margin: 30px;
+}
+
+.mat-mdc-subheader.mdc-list-group__subheader {
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.brand-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.brand-logo img {
+  width: 100px;
+  height: 50px;
+  margin-top: 0;
+}
+
+.mat-drawer-content {
+  margin-left: 200px !important;
+}
+
+.breadcrumb {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px;
+}
+.top-part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top-part button {
+  margin-right: 10px;
+}
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.top-part .mat-primary .mat-icon {
+  color: white;
+}
+
+.export-btn .mat-icon {
+  color: #673ab7 !important;
+}
+
+.import-btn .mat-icon {
+  color: #ffd740;
+}
+
+.selected-item {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 10px !important;
+}

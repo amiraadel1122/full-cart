@@ -1,0 +1,196 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened
+    ><mat-list>
+      <div mat-subheader>
+        <div class="brand-logo">
+          <img src="../../assets/images/app-logo-transparent.gif" alt="logo" />
+        </div>
+        Inventory Management
+      </div>
+      <mat-list-item>
+        <mat-icon matListItemIcon>home</mat-icon>
+        <div matListItemTitle>Home</div>
+      </mat-list-item>
+      <mat-list-item class="selected-item">
+        <mat-icon matListItemIcon>list</mat-icon>
+        <div matListItemTitle>Inventory</div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>folder</mat-icon>
+        <div matListItemTitle>Deals</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content
+    ><mat-toolbar>
+      <span class="spacer"></span>
+      <button
+        mat-icon-button
+        class="notification-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <div class="user-profile">
+        <img src="../../assets/images/user.png" alt="user image" width="45" />
+        <span class="user-name">Admin</span>
+      </div>
+    </mat-toolbar>
+
+    <div class="top-part">
+      <div class="breadcrumb">Inventory</div>
+      <div>
+        <button mat-stroked-button color="accent" class="import-btn">
+          <mat-icon matListItemIcon>upload</mat-icon>Import
+        </button>
+        <button mat-stroked-button color="primary" class="export-btn">
+          <mat-icon matListItemIcon>download</mat-icon>Export
+        </button>
+        <button mat-raised-button color="primary" (click)="editRow()">
+          <mat-icon matListItemIcon>add</mat-icon>Add Inventory
+        </button>
+      </div>
+    </div>
+    <div class="mat-elevation-z8">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        (matSortChange)="announceSortChange($event)"
+      >
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox
+              (change)="$event ? toggleAllRows() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()"
+              [aria-label]="checkboxLabel()"
+            >
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox
+              (click)="$event.stopPropagation()"
+              (change)="$event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)"
+              [aria-label]="checkboxLabel(row)"
+            >
+            </mat-checkbox>
+          </td>
+        </ng-container>
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            sortActionDescription="Sort by number"
+          >
+            No.
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Name">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            sortActionDescription="Sort by name"
+          >
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.Name }}</td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="Description">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            sortActionDescription="Sort by description"
+          >
+            Description
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.Description }}</td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="Price">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            sortActionDescription="Sort by price"
+          >
+            Price
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.Price }}</td>
+        </ng-container>
+
+        <!-- Brand Column -->
+        <ng-container matColumnDef="Brand">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            sortActionDescription="Sort by brand"
+          >
+            Brand
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.Brand }}</td>
+        </ng-container>
+
+        <!-- Quantity Column -->
+        <ng-container matColumnDef="Quantity">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            sortActionDescription="Sort by quantity"
+          >
+            Quantity
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.Quantity }}</td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="Actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              color="primary"
+              aria-label="Example icon button with a home icon"
+              (click)="editRow()"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              color="warn"
+              aria-label="Example icon button with a home icon"
+              (click)="deleteRow()"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[10, 20]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements"
+      >
+      </mat-paginator></div
+  ></mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,50 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="brand-logo">
+      <img src="../../assets/images/app-logo-transparent.gif" alt="logo" />
+    </div>
+    <div class="right-side">
+      <span class="new-user">New User?</span
+      ><span class="sign-up"
+        ><button mat-button color="primary">Sign Up</button></span
+      >
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <img src="../../assets/images/login-img.jpg" alt="login-img" width="100%"
+  /></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-grid-tile-header>
+      <div>Welcome Back!</div>
+      <div>Login to continue</div>
+    </mat-grid-tile-header>
+    <div class="login-form">
+      <mat-form-field>
+        <mat-label>Input</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div class="form-actions">
+        <button mat-flat-button color="primary" [routerLink]="['/inventory']">
+          LOGIN
+        </button>
+        <a mat-flat-button href="" target="_blank">Forgot your password?</a>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

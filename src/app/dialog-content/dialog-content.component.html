@@ -1,0 +1,83 @@
+<h2 mat-dialog-title>Edit Inventory</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Develop across all platforms</h3>
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile>
+      <mat-form-field floatLabel="always">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" [(ngModel)]="value" />
+        @if (value) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="value = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field floatLabel="always">
+        <mat-label>Description</mat-label>
+        <input matInput type="text" [(ngModel)]="value" />
+        @if (value) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="value = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field floatLabel="always">
+        <mat-label>Price</mat-label>
+        <input
+          matInput
+          type="number"
+          class="example-right-align"
+          placeholder="0"
+        />
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field floatLabel="always">
+        <mat-label>Brand</mat-label>
+        <input matInput type="text" [(ngModel)]="value" />
+        @if (value) {
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="value = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field floatLabel="always">
+        <mat-label>Quantity</mat-label>
+        <input
+          matInput
+          type="number"
+          class="example-right-align"
+          placeholder="0"
+        />
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
